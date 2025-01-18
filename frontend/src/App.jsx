@@ -7,9 +7,9 @@ function App() {
   return (
     <Router>
       <Routes> 
-        <Route path="/" element={<SlotMachine />} />
-        <Route path="/slot-machine" element={<SlotMachine />} />
         <Route path="/games" element={<GameList />} />
+        <Route path="/slot-machine" element={<SlotMachine />} />
+        
       </Routes>
     </Router>
   );

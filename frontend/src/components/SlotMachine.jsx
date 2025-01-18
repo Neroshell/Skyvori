@@ -107,7 +107,7 @@ const SlotMachine = () => {
 
   return (
    
-    <Box sx={{ width: '100%', margin: "0 auto"}}>
+    <Box >
       <Paper  elevation={3} sx={{ p: 4, mt: 0, borderRadius: 2 }}>
         <Typography variant="h4" gutterBottom align="center">
           <CasinoIcon fontSize="large" color="primary" sx={{ mr: 1 }} />

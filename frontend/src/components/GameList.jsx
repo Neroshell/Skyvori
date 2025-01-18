@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Container, Grid, Card, CardMedia, CardContent, Typography, Box, TextField } from "@mui/material";
+import { Container, Grid, Card, CardMedia, CardContent, Typography, Box, TextField, Button } from "@mui/material";
 import { useDebounce } from "use-debounce";
+import { Link } from 'react-router-dom';
+
 
 const GameList = () => {
     const [games, setGames] = useState([]);
@@ -47,22 +49,35 @@ const GameList = () => {
             <Typography sx={{
                     mt: 5,
                     fontSize: {
-                    xs: "1.5rem", // Small screens
-                    sm: "2rem",   // Medium screens
-                    md: "2.5rem", // Large screens
-                    lg: "3rem",   // Extra large screens
+                    xs: "2.5rem", // Small screens
+                    sm: "3rem",   // Medium screens
+                    md: "3.5rem", // Large screens
+                    lg: "4rem",   // Extra large screens
                     },
-  }} variant="h3" gutterBottom>
+  }} variant="h4" gutterBottom>
                 Explore Our Games Collections
             </Typography>
-            <TextField
-                label="Search Games"
-                variant="outlined"
-                onChange={(e) => setSearchQuery(e.target.value)} // Update search query as user types
-                value={searchQuery}
-                sx={{ mb: 5 }}
-
-            />
+            <Box
+                sx={{
+                    display: 'flex',
+                    gap: '10px',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    padding: '10px',
+                    mb: 5,
+                }}
+                >
+                <TextField
+                    label="Search Games"
+                    variant="outlined"
+                    onChange={(e) => setSearchQuery(e.target.value)} // Update search query as user types
+                    value={searchQuery}
+                   // Optional: makes the TextField grow to take more space if needed
+                />
+                <Button component={Link} to="/slot-machine" size="small" variant="contained" >
+                    Try slot machine
+                </Button>
+        </Box>
             <Grid container spacing={2}>
                 {games.map((game) => (
                     <Grid item xs={12} sm={6} md={4} key={game.id}>
