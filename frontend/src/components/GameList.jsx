@@ -13,7 +13,7 @@ const GameList = () => {
     // Fetch all games initially
     useEffect(() => {
         axios
-            .get(`http://localhost:5000/api/games`)
+            .get('/api/games')
             .then((response) => {
                 setAllGames(response.data);
                 setGames(response.data); // Set games to all games initially
