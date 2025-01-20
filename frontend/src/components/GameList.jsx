@@ -47,12 +47,12 @@ const GameList = () => {
         <>
         <Container sx={{textAlign: 'center'}}>
             <Typography sx={{
-                    mt: 5,
+                    mt: 3,
                     fontSize: {
-                    xs: "2.5rem", // Small screens
-                    sm: "3rem",   // Medium screens
-                    md: "3.5rem", // Large screens
-                    lg: "4rem",   // Extra large screens
+                    xs: "1.5rem", // Small screens
+                    sm: "2rem",   // Medium screens
+                    md: "2.5rem", // Large screens
+                    lg: "3rem",   // Extra large screens
                     },
   }} variant="h4" gutterBottom>
                 Explore Our Games Collections
@@ -78,15 +78,26 @@ const GameList = () => {
                     Try slot machine
                 </Button>
         </Box>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                   
+        
+                
+            }}
+
+
+            >
                 {games.map((game) => (
-                    <Grid item xs={12} sm={6} md={4} key={game.id}>
+                    <Grid item xs={10} sm={6} md={4} key={game.id} >
                         <Card
                             sx={{
                                 cursor: "pointer",
                                 height: "100%",
                                 display: "flex",
                                 flexDirection: "column",
+                               
                             }}
                         >
                             <Box
@@ -94,6 +105,7 @@ const GameList = () => {
                                     position: "relative",
                                     paddingTop: "56.25%", // 16:9 aspect ratio
                                     width: "100%",
+                                    
                                 }}
                             >
                                 <CardMedia
