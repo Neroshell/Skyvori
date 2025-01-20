@@ -74,7 +74,7 @@ const GameList = () => {
                     value={searchQuery}
                    // Optional: makes the TextField grow to take more space if needed
                 />
-                <Button component={Link} to="/slot-machine" size="small" variant="contained" >
+                <Button  component={Link} to="/slot-machine" size="small" variant="contained" >
                     Try slot machine
                 </Button>
         </Box>

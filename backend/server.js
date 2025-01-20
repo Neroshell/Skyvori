@@ -1,9 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const morgan = require("morgan");
+
 const path = require("path");
 const gameRoutes = require("./routes/gameRoutes");
 const spinRoutes = require("./routes/spinRoutes");
+
 
 const app = express();
 const PORT = 5000;
@@ -12,6 +14,7 @@ const PORT = 5000;
 app.use(cors());
 app.use(express.json());
 app.use(morgan("combined"));
+
 
 // API Routes
 app.use("/api/games", gameRoutes);
@@ -24,6 +27,12 @@ app.use(express.static(buildPath));
 // Catch-all route to serve React's index.html
 app.get("*", (req, res) => {
   res.sendFile(path.join(buildPath, "index.html"));
+});
+
+// Centralized Error Handler
+app.use((err, req, res, next) => {
+  console.error(err.stack);
+  res.status(500).json({ error: "An unexpected error occurred." });
 });
 
 // Start server
