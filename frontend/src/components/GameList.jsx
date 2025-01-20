@@ -47,9 +47,9 @@ const GameList = () => {
         <>
         <Container sx={{textAlign: 'center'}}>
             <Typography sx={{
-                    mt: 3,
+                    mt: 5,
                     fontSize: {
-                    xs: "1.5rem", // Small screens
+                    xs: "2.0rem", // Small screens
                     sm: "2rem",   // Medium screens
                     md: "2.5rem", // Large screens
                     lg: "3rem",   // Extra large screens
