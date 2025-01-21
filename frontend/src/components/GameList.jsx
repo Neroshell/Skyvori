@@ -46,17 +46,25 @@ const GameList = () => {
     return (
         <>
         <Container sx={{textAlign: 'center'}}>
-            <Typography sx={{
+       
+                <Typography
+                    sx={{
                     mt: 5,
                     fontSize: {
-                    xs: "2.0rem", // Small screens
-                    sm: "2rem",   // Medium screens
-                    md: "2.5rem", // Large screens
-                    lg: "3rem",   // Extra large screens
+                        xs: "2rem", // Small screens
+                        sm: "2.3rem", // Medium screens
+                        md: "2.5rem", // Large screens
+                        lg: "3rem",  // Extra large screens
                     },
-  }} variant="h4" gutterBottom>
-                Explore Our Games Collections
-            </Typography>
+                    color: "#140518"
+                    }}
+                    variant="h3"
+                    gutterBottom
+                >
+                    Explore Our Gaming Collection
+                </Typography>
+
+
             <Box
                 sx={{
                     display: 'flex',
@@ -68,13 +76,26 @@ const GameList = () => {
                 }}
                 >
                 <TextField
-                    label="Search Games"
-                    variant="outlined"
-                    onChange={(e) => setSearchQuery(e.target.value)} // Update search query as user types
-                    value={searchQuery}
-                   // Optional: makes the TextField grow to take more space if needed
-                />
-                <Button  component={Link} to="/slot-machine" size="small" variant="contained" >
+  label="Search Games"
+  variant="outlined"
+  onChange={(e) => setSearchQuery(e.target.value)}
+  value={searchQuery}
+  sx={{
+   "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+    borderColor: "#140518", // Changes the border color when focused
+},
+    "& .MuiInputLabel-root.Mui-focused": {
+      color: "#E30AE3", // Label color when focused
+    },
+
+    
+   
+  }}
+/>
+
+                <Button 
+                sx={{backgroundColor: '#E30AE3'}} 
+                 component={Link} to="/slot-machine" size="small" variant="contained" >
                     Try slot machine
                 </Button>
         </Box>

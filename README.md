@@ -1,8 +1,8 @@
-Skivori Game Portal
+SKIVORI GAMES PORTAL
 
 Welcome to the Skivori Game Portal, a web application that features a slot machine game and a collection of exciting games to explore. This project includes a React-based frontend and an Express.js backend, structured to provide a seamless user experience.
 
-Project Structure
+PROJECT STRUCTURE
 
 skivori-game-portal/
 ├── frontend/      # Frontend application (React)
@@ -10,9 +10,9 @@ skivori-game-portal/
 ├── .gitignore   # Files and folders to ignore in Git
 ├── README.md    # Project documentation
 
-Features
+FEATURES
 
-Slot Machine Game
+Slot 
 Spin a slot machine with dynamic results.
 Track your balance and earn rewards.
 Convert in-game currency to real-world currencies using live exchange rates.
@@ -22,7 +22,7 @@ Explore a collection of games fetched from the backend.
 Search games by title or provider with real-time updates.
 Responsive card grid layout for game display.
 
-Technologies Used
+TECHNOLOGY USED
 Frontend
 React: Frontend library for building user interfaces.
 Material-UI (MUI): UI components for responsive design.
@@ -39,7 +39,8 @@ Setup and Installation
 Prerequisites
 Node.js
 Git
-Clone the Repository
+
+CLONE THE REPOSITORY
 git clone https://github.com/Neroshell/Skyvori.git
 cd skivori-game-portal
 Install Dependencies
@@ -54,23 +55,19 @@ Frontend
 cd frontend
 npm install
 
-Running the Project
+RUNNING THE PROJECT
 
 Start the Backend Server
 
 cd backend
 node server.js
 
+RELEVANT LINKS: https://localhost:5000/games, https://localhost:5000/slot-machine
 
-Start the Frontend Application
-
-cd frontend
-npm run dev
 
 
 
 This project leveraged an AI assistant for guidance and optimization the following areas:
-
 
 Search Functionality: AI guided the implementation of a debounced search feature, enhancing performance and user experience.
 
