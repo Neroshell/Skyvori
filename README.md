@@ -63,6 +63,7 @@ cd backend
 node server.js
 
 RELEVANT LINKS: https://localhost:5000/games, https://localhost:5000/slot-machine
+https://skyvori.onrender.com/games https://skyvori.onrender.com/slot-machine
 
 
 
