@@ -3,7 +3,8 @@ import axios from "axios";
 import { Container, Grid, Card, CardMedia, CardContent, Typography, Box, TextField, Button } from "@mui/material";
 import { useDebounce } from "use-debounce";
 import { Link } from 'react-router-dom';
-
+import AOS from "aos";
+import "aos/dist/aos.css"; // Import AOS styles
 
 const GameList = () => {
     const [games, setGames] = useState([]);
@@ -11,7 +12,15 @@ const GameList = () => {
     const [searchQuery, setSearchQuery] = useState("");
     const [debouncedSearchQuery] = useDebounce(searchQuery, 500); // This prevents an API request on every keystroke
 
-    // 
+    // Initialize AOS on component mount
+    useEffect(() => {
+        AOS.init({
+            duration: 1500, // Animation duration in milliseconds
+            offset: 50,     // Offset (in px) from the original trigger point
+            easing: "ease-in-out", // Easing function for the animation
+        });
+    }, []);
+
     // Fetch all games initially
     useEffect(() => {
         axios
@@ -24,11 +33,6 @@ const GameList = () => {
     }, []);
 
     // Fetch filtered games when the debouncedSearchQuery changes
-     /**
-     * // Debounce the search query for 500ms delay the search query change.
-     *  This prevents an API request on every keystroke, instead waiting for
-     *  the user to stop typing for 500ms. This answers question 5  
-     */
     useEffect(() => {
         if (debouncedSearchQuery) {
             // Filter games based on the debouncedSearchQuery
@@ -45,10 +49,9 @@ const GameList = () => {
 
     return (
         <>
-        <Container sx={{textAlign: 'center'}}>
-       
-                <Typography
-                    sx={{
+        <Container sx={{ textAlign: 'center' }}>
+            <Typography
+                sx={{
                     mt: 5,
                     fontSize: {
                         xs: "2rem", // Small screens
@@ -57,13 +60,12 @@ const GameList = () => {
                         lg: "3rem",  // Extra large screens
                     },
                     color: "#140518"
-                    }}
-                    variant="h3"
-                    gutterBottom
-                >
-                    Explore Our Gaming Collection
-                </Typography>
-
+                }}
+                variant="h3"
+                gutterBottom
+            >
+                Explore Our Gaming Collection
+            </Typography>
 
             <Box
                 sx={{
@@ -74,51 +76,40 @@ const GameList = () => {
                     padding: '10px',
                     mb: 5,
                 }}
-                >
+            >
                 <TextField
-  label="Search Games"
-  variant="outlined"
-  onChange={(e) => setSearchQuery(e.target.value)}
-  value={searchQuery}
-  sx={{
-   "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
-    borderColor: "#140518", // Changes the border color when focused
-},
-    "& .MuiInputLabel-root.Mui-focused": {
-      color: "#E30AE3", // Label color when focused
-    },
-
-    
-   
-  }}
-/>
+                    label="Search Games"
+                    variant="outlined"
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    value={searchQuery}
+                    sx={{
+                        "& .MuiOutlinedInput-root.Mui-focused .MuiOutlinedInput-notchedOutline": {
+                            borderColor: "#140518", // Changes the border color when focused
+                        },
+                        "& .MuiInputLabel-root.Mui-focused": {
+                            color: "#E30AE3", // Label color when focused
+                        },
+                    }}
+                />
 
                 <Button 
-                sx={{backgroundColor: '#E30AE3'}} 
-                 component={Link} to="/slot-machine" size="small" variant="contained" >
+                    sx={{ backgroundColor: '#E30AE3' }} 
+                    component={Link} to="/slot-machine" size="small" variant="contained"
+                >
                     Try slot machine
                 </Button>
-        </Box>
-            <Grid container spacing={2} sx={{
-                    display: 'flex',
-                    justifyContent: 'center',
-                    alignItems: 'center',
-                   
-        
-                
-            }}
+            </Box>
 
-
-            >
+            <Grid container spacing={2} sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
                 {games.map((game) => (
-                    <Grid item xs={10} sm={6} md={4} key={game.id} >
+                    <Grid item xs={10} sm={6} md={4} key={game.id}>
                         <Card
+                            data-aos="slide-up" // AOS animation
                             sx={{
                                 cursor: "pointer",
                                 height: "100%",
                                 display: "flex",
                                 flexDirection: "column",
-                               
                             }}
                         >
                             <Box
@@ -126,7 +117,6 @@ const GameList = () => {
                                     position: "relative",
                                     paddingTop: "56.25%", // 16:9 aspect ratio
                                     width: "100%",
-                                    
                                 }}
                             >
                                 <CardMedia
@@ -160,8 +150,7 @@ const GameList = () => {
                 ))}
             </Grid>
         </Container>
-    </>
-        
+        </>
     );
 };
 
